@@ -8,12 +8,14 @@ ENV DIGDAG_VERSION=latest
 RUN yum -y update && yum clean all
 
 # set locale
-RUN yum reinstall -y glibc-common && yum clean all
-ENV LANG ja_JP.utf-8
+ENV LANG ja_JP.UTF-8
 ENV LANGUAGE ja_JP:ja
-ENV LC_ALL ja_JP.utf-8
-RUN unlink /etc/localtime
-RUN ln -s /usr/share/zoneinfo/Japan /etc/localtime
+ENV LC_ALL ja_JP.UTF-8
+RUN yum reinstall -y glibc-common && \
+  yum clean all && \
+  localedef -f UTF-8 -i ja_JP /usr/lib/locale/ja_JP.UTF-8 && \
+  unlink /etc/localtime && \
+  ln -s /usr/share/zoneinfo/Japan /etc/localtime
 
 # digdag install
 RUN yum install -y java-1.8.0-openjdk && \
