@@ -28,10 +28,13 @@ Vagrant.configure("2") do |config|
 
 
 ## Quay
+https://quay.io/repository/aaua/hello-digdag<br>
 コミットしたらビルドが動くことを確認
 
 ## Rancher
-https://github.com/rancher/rancher
+https://github.com/rancher/rancher<br>
+<br>
+インストール
 ```sh
 docker run -d --restart=unless-stopped -p 8080:8080 rancher/server
 ```
@@ -39,12 +42,12 @@ docker run -d --restart=unless-stopped -p 8080:8080 rancher/server
 ブラウザからRancherのGUIにアクセス<br>
 http://localhost:8080
 
-CATALOGからWordpressを立ててみる、データの永続化をしてみる
-参考: https://github.com/aaua/hello-digdag/blob/latest/sample/rancher/wordpress
+CATALOGからWordpressを立ててみる、データの永続化をしてみる<br>
+（[サンプル](/sample/rancher/wordpress)）
 
 ## Digdag
-``quay.io/aaua/hello-digdag``をイメージとして使ってdigdagサーバーを立ててみる
-参考: https://github.com/aaua/hello-digdag/blob/latest/sample/rancher/digdag
+``quay.io/aaua/hello-digdag``をイメージとして使ってdigdagサーバーを立ててみる<br>
+（[サンプル](/sample/rancher/digdag)）
 
 ```sh
 docker ps -a
