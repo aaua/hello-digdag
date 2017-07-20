@@ -1,0 +1,15 @@
+version: '2'
+services:
+  wordpress:
+    image: wordpress
+    links:
+    - db:mysql
+    ports:
+    - 80:80/tcp
+  db:
+    image: mariadb
+    environment:
+      MYSQL_ROOT_PASSWORD: example
+    volumes:
+      - wordpress0706_wp_data:/var/lib/mysql
+      - wordpress0706_mysql_conf:/etc/mysql/conf.d

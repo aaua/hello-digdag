@@ -1,0 +1,6 @@
+version: '2'
+services:
+  digdag:
+    image: quay.io/aaua/hello-digdag
+    ports:
+    - 80:80/tcp
