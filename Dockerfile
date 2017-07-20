@@ -22,7 +22,8 @@ RUN yum install -y java-1.8.0-openjdk && \
   echo 'export PATH="$HOME/bin:$PATH"' >> /etc/bashrc && \
   mkdir -p ~/.config/digdag && \
   touch ~/.config/digdag/config && \
-  echo 'client.http.endpoint=http://localhost:80' >> ~/.config/digdag/config
+  echo 'client.http.endpoint=http://localhost:80' >> ~/.config/digdag/config && \
+  mkdir -p /var/log/digdag
 
 EXPOSE 80
-CMD exec digdag server -m --bind 0.0.0.0 --port 80
+CMD exec digdag server -m --bind 0.0.0.0 --port 80 --task-log /var/log/digdag/task_log.log
